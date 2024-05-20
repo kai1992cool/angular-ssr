@@ -9,7 +9,7 @@ import { interceptInterceptor } from './intercept.interceptor';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
+    provideHttpClient(withFetch(), withInterceptors([interceptInterceptor])),
     provideClientHydration(withHttpTransferCacheOptions({})),
-    provideHttpClient(withFetch(), withInterceptors([interceptInterceptor]))
   ]
 };
